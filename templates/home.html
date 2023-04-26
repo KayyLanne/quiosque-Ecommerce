@@ -2,11 +2,13 @@
 {%load static%}
 
 
+{% block title %} Home | Quiosque do papai {% endblock %}
+
 {% block content %} 
 <div class="d-flex flex-column wrapper">
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger border-bottom shadow-sm mb-3">
         <div class="container">
-            <a class="navbar-brand " href=""> <b>Quiosque do Papai</b></a>
+            <a class="navbar-brand " href="{% url 'home_quiosque' %}"> <b>Quiosque do Papai</b></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" >
                 <span class="navbar-toggler-icon"></span>
@@ -15,25 +17,25 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav flex-grow-1">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="home">Home</a>
+                        <a class="nav-link text-white" href="{% url 'home_quiosque' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="contato">Contato</a>
+                        <a class="nav-link text-white" href="{% url 'contato_quiosque' %}">Contato</a>
                     </li>
                     
                 </ul>
                 <div class="align-self-end">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a href="cadastro" class="nav-link text-white">Cadastre-se</a>
+                            <a href="{% url 'cadastro_cliente' %}" class="nav-link text-white">Cadastre-se</a>
                         </li>
                         <li class="nav-item">
-                            <a href="login" class="nav-link text-white">Entrar</a>
+                            <a href="{% url 'login_cliente' %}" class="nav-link text-white">Entrar</a>
                         </li>
                         <li class="nav-item">
                             <span class="badge rounded-pill bg-light text-danger position-absolute ms-4 mt-0"
                                 title="5 produto(s) no carrinho"><small>5</small></span>
-                            <a href="carrinho" class="nav-link text-white">
+                            <a href="{% url 'carrinho_quiosque' %}" class="nav-link text-white">
                                 <i class="bi-cart" style="font-size:24px;line-height:24px;"></i>
                             </a>
                         </li>
@@ -52,16 +54,16 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="3000">
-                    <img src="{%static 'img/slide01.jpg'%}" class="d-none d-md-block w-100" alt="">
-                    <img src="{%static 'img/slide01small.jpg'%}" class="d-block d-md-none  w-100" alt="">
+                    <img src="{%static 'img/01.png'%}" class="d-none d-md-block w-100" alt="">
+                    <img src="{%static 'img/01small.png'%}" class="d-block d-md-none  w-100" alt="">
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
-                    <img src="{%static 'img/slide01.jpg'%}" class="d-none d-md-block w-100" alt="">
-                    <img src="{%static 'img/slide01small.jpg'%}" class="d-block d-md-none  w-100" alt="">
+                    <img src="{%static 'img/02.png'%}" class="d-none d-md-block w-100" alt="">
+                    <img src="{%static 'img/02small.png'%}" class="d-block d-md-none  w-100" alt="">
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
-                    <img src="{%static 'img/slide01.jpg'%}" class="d-none d-md-block w-100" alt="">
-                    <img src="{%static 'img/slide01small.jpg'%}" class="d-block d-md-none  w-100" alt="">
+                    <img src="{%static 'img/03.png'%}" class="d-none d-md-block w-100" alt="">
+                    <img src="{%static 'img/03small.png'%}" class="d-block d-md-none  w-100" alt="">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselMain" data-bs-slide="prev">
@@ -141,13 +143,13 @@
                         R$ 5,00
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Banana Prata</h5>
+                        <h5 class="card-title">Batata Frita</h5>
                         <p class="card-text truncar-3l">
-                            Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
+                            Uma porção de batata frita de 500 gramas.
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                        <a href="{% url 'carrinho_quiosque' %}" class="btn btn-danger mt-2 d-block">
                             Adicionar ao Carrinho
                         </a>
                         <br>
@@ -161,16 +163,16 @@
                     </a>
                     <img src="{%static 'img/calabresa.png'%}" class="card-img-top">
                     <div class="card-header">
-                        R$ 4,50
+                        R$ 10,00
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Banana Prata</h5>
+                        <h5 class="card-title">Misto de Calabresa</h5>
                         <p class="card-text truncar-3l">
-                            Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
+                            Prato de petisco de calabresa com fritas.
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                        <a href="{% url 'carrinho_quiosque' %}" class="btn btn-danger mt-2 d-block">
                             Adicionar ao Carrinho
                         </a>
                         <br>
@@ -184,12 +186,12 @@
                     </a>
                     <img src="{%static 'img/brahma.png'%}" class="card-img-top">
                     <div class="card-header">
-                        R$ 4,50
+                        R$ 4,00
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Banana Prata</h5>
+                        <h5 class="card-title">Brahma 0,0% Álcool</h5>
                         <p class="card-text truncar-3l">
-                            Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
+                            Brahma Zero Lata Std 350ml.
                         </p>
                     </div>
                     <div class="card-footer">
@@ -209,16 +211,16 @@
                     </a>
                     <img src="{%static 'img/carne.png'%}" class="card-img-top">
                     <div class="card-header">
-                        R$ 4,50
+                        R$ 10,00
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Banana Prata</h5>
+                        <h5 class="card-title">Misto de Carne</h5>
                         <p class="card-text truncar-3l">
-                            Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
+                            Prato de petisco de carne com fritas.
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                        <a href="{% url 'carrinho_quiosque' %}" class="btn btn-danger mt-2 d-block">
                             Adicionar ao Carrinho
                         </a>
                         <br>
@@ -232,16 +234,16 @@
                     </a>
                     <img src="{%static 'img/heiLong.png'%}" class="card-img-top">
                     <div class="card-header">
-                        R$ 4,50
+                        R$ 7,00
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Banana Prata</h5>
+                        <h5 class="card-title">Heineken LongNeck</h5>
                         <p class="card-text truncar-3l">
-                            Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
+                            Long Neck de 330ml. Teor alcoólico de 5%.
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                        <a href="{% url 'carrinho_quiosque' %}" class="btn btn-danger mt-2 d-block">
                             Adicionar ao Carrinho
                         </a>
                         <br>
@@ -255,16 +257,16 @@
                     </a>
                     <img src="{%static 'img/skol.png'%}" class="card-img-top">
                     <div class="card-header">
-                        R$ 4,50
+                        R$ 4,00
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Banana Prata</h5>
+                        <h5 class="card-title">Skol Pilsen</h5>
                         <p class="card-text truncar-3l">
-                            Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
+                            A cerveja que desce redondo. Latão 473ml.
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                        <a href="{% url 'carrinho_quiosque' %}" class="btn btn-danger mt-2 d-block">
                             Adicionar ao Carrinho
                         </a>
                         <br>
@@ -278,16 +280,16 @@
                     </a>
                     <img src="{%static 'img/itaipava.png'%}" class="card-img-top">
                     <div class="card-header">
-                        R$ 4,50
+                        R$ 4,00
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Banana Prata</h5>
+                        <h5 class="card-title">Itaipava Pilsen</h5>
                         <p class="card-text truncar-3l">
-                            Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
+                            Itaipava é uma cerveja nobre. Latão 473ml.
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                        <a href="{% url 'carrinho_quiosque' %}" class="btn btn-danger mt-2 d-block">
                             Adicionar ao Carrinho
                         </a>
                         <br>
@@ -301,16 +303,16 @@
                     </a>
                     <img src="{%static 'img/heineken.png'%}" class="card-img-top">
                     <div class="card-header">
-                        R$ 4,50
+                        R$ 30,00
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Banana Prata</h5>
+                        <h5 class="card-title">Balde de Heineken</h5>
                         <p class="card-text truncar-3l">
-                            Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
+                            Balde com 5 unidades de heineken. Lata 350ml.
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
+                        <a href="{% url 'carrinho_quiosque' %}" class="btn btn-danger mt-2 d-block">
                             Adicionar ao Carrinho
                         </a>
                         <br>

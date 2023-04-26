@@ -11,3 +11,9 @@ def cadastro(request):
 
 def produto(request):
     return render(request, 'produto.html')
+
+def contato(request):
+    return render(request, 'contato.html')
+
+def carrinho(request):
+    return render(request, 'carrinho.html')
