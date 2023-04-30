@@ -118,9 +118,9 @@
                     </label>
                 </div>
                 <div class="mb-3 text-left">
-                    <a class="btn btn-lg btn-light btn-outline-danger" href="/">Cancelar</a>
+                    <a class="btn btn-lg btn-light btn-outline-danger" href="{% url 'login_cliente' %}">Cancelar</a>
                     <input type="button" value="Criar meu cadastro" class="btn btn-lg btn-danger"
-                        href='/confirmarcadastro.html' />
+                        href="{% url 'confirmacao_cadastro' %}" />
                 </div>
             </form>
         </div>
