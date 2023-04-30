@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.urls import reverse
-from django.contrib import auth
+from django.contrib import auth, messages
+from django.contrib.messages import constants
 
 
 def login(request):
@@ -14,6 +15,7 @@ def login(request):
         user = auth.authenticate(email = email, senha = senha)
 
         if not user:
+            messages.add_message(request, constants.ERROR, 'Usuario ou senha invalidos')
             return redirect(reverse('login'))
 
         auth.login(request, user)
@@ -34,12 +36,14 @@ def cadastro(request):
         numero = request.POST.get('numero')
 
         if not senha == confirmar_senha:
+            messages.add_message(request, constants.ERROR, 'As senhas não iguais')
             return redirect(reverse('cadastro'))
 
 
         user = User.objects.filter(email = email)
 
         if user.exists():
+            messages.add_message(request, constants.ERROR, 'O email ja existe!')
             return redirect(reverse('cadastro'))
 
         user = User.objects.create_user(
@@ -52,11 +56,9 @@ def cadastro(request):
             estado = estado,
             numero = numero,
         ) 
-
+        messages.add_message(request, constants.SUCCESS, 'Usuario cadastrado com sucesso!')
         return redirect(reverse('login')) 
 
-def confirmacaoCadastro(request):
-    return render(request, 'confirmacaoCadastro.html')
 
 def contato(request):
     return render(request, 'contato.html')
