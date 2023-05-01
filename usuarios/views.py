@@ -1,18 +1,18 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from django.urls import reverse
 from django.contrib import auth, messages
+from django.contrib.auth.models import User
 from django.contrib.messages import constants
+from django.shortcuts import redirect, render
+from django.urls import reverse
 
 
 def login(request):
     if request.method == "GET":
         return render(request, 'login.html')
     elif request.method == "POST":
-        email = request.POST.get('email')
-        senha = request.POST.get('senha')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         
-        user = auth.authenticate(email = email, senha = senha)
+        user = auth.authenticate(username = username, password = password)
 
         if not user:
             messages.add_message(request, constants.ERROR, 'Usuario ou senha invalidos')
@@ -25,38 +25,23 @@ def cadastro(request):
     if request.method == "GET":
         return render(request, 'cadastro.html')
     elif request.method == "POST":
-        nome = request.POST.get('nome')
-        sobrenome = request.POST.get('sobrenome')
+        username = request.POST.get('username')
         email = request.POST.get('email')
-        senha = request.POST.get('senha')
-        confirmar_senha = request.POST.get('confirmar_senha')
-        telefone = request.POST.get('telefone')
-        cidade = request.POST.get('cidade')
-        estado = request.POST.get('estado')
-        numero = request.POST.get('numero')
+        password = request.POST.get('password')
+        
 
-        if not senha == confirmar_senha:
-            messages.add_message(request, constants.ERROR, 'As senhas não iguais')
-            return redirect(reverse('cadastro'))
-
-
-        user = User.objects.filter(email = email)
+        user = User.objects.filter(username = username)
 
         if user.exists():
             messages.add_message(request, constants.ERROR, 'O email ja existe!')
             return redirect(reverse('cadastro'))
 
         user = User.objects.create_user(
-            nome = nome,
-            sobrenome = sobrenome,
+            username = username,
             email = email,
-            senha = senha,
-            telefone = telefone,
-            cidade = cidade,
-            estado = estado,
-            numero = numero,
+            password = password,
         ) 
-        messages.add_message(request, constants.SUCCESS, 'Usuario cadastrado com sucesso!')
+        messages.success(request, 'Usuario cadastrado com sucesso!')
         return redirect(reverse('login')) 
 
 

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 
+
 def carrinho(request):
-    return render(request, 'carrinho.html')
-    
+    if request.method == 'GET':
+        return render(request, 'carrinho.html')
