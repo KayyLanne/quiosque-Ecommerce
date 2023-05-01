@@ -6,5 +6,9 @@ class Produto(models.Model):
     id = models.AutoField(auto_created=True, primary_key=True)
     nome_produto = models.CharField(max_length=30)
     descricao = models.TextField()
-    valor = models.FloatField()
-    foto = models.ImageField()
+    valor = models.DecimalField(max_digits=5, decimal_places=2)
+    foto = models.ImageField(null=True, blank=True, upload_to='img_produtos')
+
+    def __str__(self):
+        return self.nome_produto
+        

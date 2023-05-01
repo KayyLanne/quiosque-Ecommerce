@@ -131,21 +131,24 @@
         <hr mt-3>
 
         <div class="row g-3">
+            {% for produto in produtos %}
+
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                 <div class="card text-center bg-light">
                     <a href="#" class="position-absolute end-0 p-2 text-danger">
                         <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
                     </a>
-                    <a href="produto">
-                        <img src="{%static 'img/batata.png'%}" class="card-img-top">
-                    </a>
+                    <img src="{{produto.foto.url}}" class="card-img-top">
+                    
                     <div class="card-header">
-                        R$ 5,00
+                        R$ {{produto.valor}}
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Batata Frita</h5>
+                        <a href="{% url  'produto' %}" style="text-decoration:none; color: black;">
+                            <h5 class="card-title">{{produto.nome_produto}}</h5>
+                        </a>
                         <p class="card-text truncar-3l">
-                            Uma porção de batata frita de 500 gramas.
+                            {{produto.descricao}}
                         </p>
                     </div>
                     <div class="card-footer">
@@ -156,29 +159,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <div class="card text-center bg-light">
-                    <a href="#" class="position-absolute end-0 p-2 text-danger">
-                        <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                    </a>
-                    <img src="{%static 'img/calabresa.png'%}" class="card-img-top">
-                    <div class="card-header">
-                        R$ 10,00
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Misto de Calabresa</h5>
-                        <p class="card-text truncar-3l">
-                            Prato de petisco de calabresa com fritas.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <button name="batatinha" type="submit" class="btn btn-danger mt-2 d-block">
-                            Adicionar ao Carrinho
-                        </button>
-                        <br>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
             <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
                 <div class="card text-center bg-light">
                     <a href="#" class="position-absolute end-0 p-2 text-danger">
@@ -201,121 +182,6 @@
                         <small class="text-danger">
                             <b>Produto Esgotado</b>
                         </small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <div class="card text-center bg-light">
-                    <a href="#" class="position-absolute end-0 p-2 text-danger">
-                        <i class="bi-suit-heart-fill" style="font-size: 24px; line-height: 24px;"></i>
-                    </a>
-                    <img src="{%static 'img/carne.png'%}" class="card-img-top">
-                    <div class="card-header">
-                        R$ 10,00
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Misto de Carne</h5>
-                        <p class="card-text truncar-3l">
-                            Prato de petisco de carne com fritas.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <button name="carninha" type="submit" class="btn btn-danger mt-2 d-block">
-                            Adicionar ao Carrinho
-                        </button>
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <div class="card text-center bg-light">
-                    <a href="#" class="position-absolute end-0 p-2 text-danger">
-                        <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                    </a>
-                    <img src="{%static 'img/heiLong.png'%}" class="card-img-top">
-                    <div class="card-header">
-                        R$ 7,00
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Heineken LongNeck</h5>
-                        <p class="card-text truncar-3l">
-                            Long Neck de 330ml.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{% url 'carrinho' %}" class="btn btn-danger mt-2 d-block">
-                            Adicionar ao Carrinho
-                        </a>
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <div class="card text-center bg-light">
-                    <a href="#" class="position-absolute end-0 p-2 text-danger">
-                        <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                    </a>
-                    <img src="{%static 'img/skol.png'%}" class="card-img-top">
-                    <div class="card-header">
-                        R$ 4,00
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Skol Pilsen</h5>
-                        <p class="card-text truncar-3l">
-                            A cerveja que desce redondo. Latão 473ml.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{% url 'carrinho' %}" class="btn btn-danger mt-2 d-block">
-                            Adicionar ao Carrinho
-                        </a>
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <div class="card text-center bg-light">
-                    <a href="#" class="position-absolute end-0 p-2 text-danger">
-                        <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                    </a>
-                    <img src="{%static 'img/itaipava.png'%}" class="card-img-top">
-                    <div class="card-header">
-                        R$ 4,00
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Itaipava Pilsen</h5>
-                        <p class="card-text truncar-3l">
-                            Itaipava é uma cerveja nobre. Latão 473ml.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{% url 'carrinho' %}" class="btn btn-danger mt-2 d-block">
-                            Adicionar ao Carrinho
-                        </a>
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-                <div class="card text-center bg-light">
-                    <a href="#" class="position-absolute end-0 p-2 text-danger">
-                        <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                    </a>
-                    <img src="{%static 'img/heineken.png'%}" class="card-img-top">
-                    <div class="card-header">
-                        R$ 30,00
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Balde de Heineken</h5>
-                        <p class="card-text truncar-3l">
-                            Balde com 5 unidades de heineken.
-                        </p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="{% url 'carrinho' %}" class="btn btn-danger mt-2 d-block">
-                            Adicionar ao Carrinho
-                        </a>
-                        <br>
                     </div>
                 </div>
             </div>
