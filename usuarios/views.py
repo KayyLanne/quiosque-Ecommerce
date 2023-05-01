@@ -41,7 +41,6 @@ def cadastro(request):
             email = email,
             password = password,
         ) 
-        messages.success(request, 'Usuario cadastrado com sucesso!')
         return redirect(reverse('login')) 
 
 

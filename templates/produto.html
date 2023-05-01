@@ -44,41 +44,35 @@
             </div>   
         </div>
     </nav>
+
     <main class="flex-fill">
         <div class="container mt-5">
             <div class="row g-3">
+                
                 <div class="col-12 col-sm-6">
-                    <img src="{%static 'img/batata.png'%}" class="img-thumbnail" id="imgProduto">
+                    <img src="{{produto.foto.url}}" class="img-thumbnail" id="imgProduto">
                     <br class="clearfix">
                     <div class="row my-3 gx-3">
                         <div class="col-3">
-                            <img src="{%static 'img/batata.png'%}" class="img-thumbnail" onclick="trocarImagem(this)">
+                            <img src="{{produto.foto.url}}" class="img-thumbnail">
                         </div>
                         <div class="col-3">
-                            <img src="{%static 'img/batata.png'%}" class="img-thumbnail" onclick="trocarImagem(this)">
+                            <img src="{{produto.foto.url}}" class="img-thumbnail">
                         </div>
                         <div class="col-3">
-                            <img src="{%static 'img/batata.png'%}" class="img-thumbnail">
+                            <img src="{{produto.foto.url}}" class="img-thumbnail">
                         </div>
                         <div class="col-3">
-                            <img src="{%static 'img/batata.png'%}" class="img-thumbnail">
+                            <img src="{{produto.foto.url}}" class="img-thumbnail">
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-6">
-                    <h1>Batata Frita</h1>
+                    <h1>{{produto.nome_produto}}/h1>
                     <p>
-                        Quis officia irure deserunt reprehenderit sunt non ut amet. Sunt veniam cillum aliqua. Elit
-                        labore duis laboris reprehenderit laborum magna velit dolor veniam sint.
+                        {{produto.descricao}}
                     </p>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                    
 
                     <p>
                         <button class="btn btn-lg btn-danger mb-3 mb-xl-0 me-2">
@@ -89,6 +83,7 @@
                         </button>
                     </p>
                 </div>
+                
             </div>
         </div>
     </main>
