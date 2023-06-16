@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib.messages import constants
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django.views.generic.list import ListView
+from django.views.generic.edit import UpdateView, CreateView
+
 
 
 def login(request):
@@ -46,3 +49,34 @@ def cadastro(request):
 
 def contato(request):
     return render(request, 'contato.html')
+
+
+class UserListView(ListView):
+    model = User
+    template_name = 'users.html'
+    context_object_name = "usuarios"
+
+
+class UserCreateView(CreateView):
+    model = User
+    fields = [
+        'id',
+        'username',
+        'email',  
+    ]
+    template_name = 'createuser.html'
+    success_url = '/'
+
+
+
+class UserUpdateView(UpdateView):
+    template_name = "atualiza.html"
+    model = User
+    fields = [
+    'id',
+    'username' ,
+    'email', 
+    ]     
+
+
+

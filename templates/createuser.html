@@ -1,0 +1,21 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Criar Usuario</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Criar usuario</h1>
+
+        <p>Formulario de criação de usuario</p>
+        <hr>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+    </div>
+</body>
+</html>

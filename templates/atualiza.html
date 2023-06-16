@@ -1,0 +1,21 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Atualizar Usuario</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Atualizar Usuario</h1>
+
+        <p>Formulario de atualizacao de usuario</p>
+        <hr>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+
+            <button type="submit" class="btn btn-primary">Atualizar</button>
+        </form>
+    </div>
+</body>
+</html>
